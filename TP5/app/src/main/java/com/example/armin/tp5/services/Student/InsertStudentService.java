@@ -6,15 +6,15 @@ import android.os.Binder;
 import android.os.IBinder;
 
 import com.example.armin.tp5.SchoolManagement;
-import com.example.armin.tp5.domain.Employee.EmployeeData;
-import com.example.armin.tp5.repository.Employee.EmployeeRepository;
-import com.example.armin.tp5.repository.Employee.Impl.EmployeeRepositoryImpl;
+import com.example.armin.tp5.domain.Student.StudentData;
+import com.example.armin.tp5.repository.Student.Impl.StudentRepositoryImpl;
+import com.example.armin.tp5.repository.Student.StudentRepository;
 
 /**
  * Created by Armin on 2016-05-08.
  */
 public class InsertStudentService extends Service {
-    private EmployeeRepository repo;
+    private StudentRepository repo;
     private final IBinder insertEmployee = new MyLocalBinder();
 
     public InsertStudentService() {
@@ -25,15 +25,16 @@ public class InsertStudentService extends Service {
         return insertEmployee;
     }
 
-    public EmployeeData insertEmployee(EmployeeData emp)
+    public String insertStudent(StudentData studentData)
     {
-        repo = new EmployeeRepositoryImpl(SchoolManagement.getAppContext());
-        return repo.save(emp);
+        repo = new StudentRepositoryImpl(SchoolManagement.getAppContext());
+        repo.save(studentData);
+        return "INSERTED";
     }
 
     public class MyLocalBinder extends Binder
     {
-        InsertStudentService getService()
+        public InsertStudentService getService()
         {
             return InsertStudentService.this;
         }

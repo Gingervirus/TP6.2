@@ -25,15 +25,16 @@ public class DeleteStudentService extends Service {
         return deleteStudent;
     }
 
-    public StudentData deleteStudent(StudentData emp)
+    public String deleteStudent(StudentData emp)
     {
         repo = new StudentRepositoryImpl(SchoolManagement.getAppContext());
-        return repo.delete(emp);
+        repo.delete(emp);
+        return "DELETED";
     }
 
     public class MyLocalBinder extends Binder
     {
-        DeleteStudentService getService()
+        public DeleteStudentService getService()
         {
             return DeleteStudentService.this;
         }

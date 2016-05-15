@@ -22,15 +22,16 @@ public class UpdateEmployeeService extends Service {
         return updateEmployee;
     }
 
-    public EmployeeData updateEmployee(EmployeeData emp)
+    public String updateEmployee(EmployeeData emp)
     {
         repo = new EmployeeRepositoryImpl(SchoolManagement.getAppContext());
-        return repo.update(emp);
+        repo.update(emp);
+        return "UPDATED";
     }
 
     public class MyLocalBinder extends Binder
     {
-        UpdateEmployeeService getService()
+        public UpdateEmployeeService getService()
         {
             return UpdateEmployeeService.this;
         }

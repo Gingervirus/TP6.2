@@ -22,15 +22,16 @@ public class UpdateStudentService extends Service {
         return updateStudent;
     }
 
-    public StudentData updateStudent(StudentData emp)
+    public String updateStudent(StudentData emp)
     {
         repo = new StudentRepositoryImpl(SchoolManagement.getAppContext());
-        return repo.update(emp);
+        repo.update(emp);
+        return "UPDATED";
     }
 
     public class MyLocalBinder extends Binder
     {
-        UpdateStudentService getService()
+       public UpdateStudentService getService()
         {
             return UpdateStudentService.this;
         }

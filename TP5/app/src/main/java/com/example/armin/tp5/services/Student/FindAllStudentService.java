@@ -35,7 +35,7 @@ public class FindAllStudentService extends Service {
 
     public class MyLocalBinder extends Binder
     {
-        FindAllStudentService getService()
+        public FindAllStudentService getService()
         {
             return FindAllStudentService.this;
         }

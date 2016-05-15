@@ -33,7 +33,7 @@ public class SearchStudentService extends Service {
 
     public class MyLocalBinder extends Binder
     {
-        SearchStudentService getService()
+        public SearchStudentService getService()
         {
             return SearchStudentService.this;
         }

@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class TestEmployeeRepository extends AndroidTestCase{
 
-        private static final String TAG="SETTINGS TEST";
+        private static final String TAG="EMPLOYEE TEST";
         private String id;
 
     public void testCreateReadUpdateDelete() throws Exception {
